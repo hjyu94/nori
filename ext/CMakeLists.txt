@@ -56,9 +56,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU"
   endif()
 
   # Disable specific warnings while building the dependencies
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-format-truncation -Wno-deprecated-declarations -Wno-misleading-indentation -Wno-int-in-bool-context -Wno-implicit-fallthrough -Wno-maybe-uninitialized -Wno-deprecated")
-
-  message(INFO "After disable: ${CMAKE_CXX_FLAGS}")
+  # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-format-truncation -Wno-deprecated-declarations -Wno-misleading-indentation -Wno-int-in-bool-context -Wno-implicit-fallthrough -Wno-maybe-uninitialized -Wno-deprecated")
 endif()
 
 # Sanitize build environment for static build with C++11
@@ -130,7 +128,7 @@ set(NANOGUI_BUILD_EXAMPLE OFF CACHE BOOL " " FORCE)
 set(NANOGUI_BUILD_SHARED  OFF CACHE BOOL " " FORCE)
 set(NANOGUI_BUILD_PYTHON  OFF CACHE BOOL " " FORCE)
 add_subdirectory(nanogui)
-set_property(TARGET glfw glfw_objects bin2c nanogui nanogui-obj PROPERTY FOLDER "dependencies")
+set_property(TARGET glfw glfw_objects nanogui nanogui-obj PROPERTY FOLDER "dependencies")
 
 # Build the pugixml parser
 add_library(pugixml STATIC pugixml/src/pugixml.cpp)
@@ -177,9 +175,10 @@ if(MSVC)
   endif()
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
   # Re-enable disabled warnings
-  if(CMAKE_CXX_FLAGS MATCHES "-Wno-[^ ]+")
-    string(REGEX REPLACE "-Wno-[^ ]+" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-  endif()
+  # if(CMAKE_CXX_FLAGS MATCHES "-Wno-[^ ]+")
+  #   string(REGEX REPLACE "-Wno-[^ ]+" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+  # endif()
+
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused-parameter")
   if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-gnu-anonymous-struct -Wno-c99-extensions -Wno-nested-anon-types -Wno-deprecated-register")
