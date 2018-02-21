@@ -2,7 +2,9 @@ Advanced Computer Graphics — Homeworks
 ======================================
 
 Student name:
+
 Sciper number:
+
 
 ## Build status
 
@@ -12,12 +14,12 @@ Sciper number:
 ## Homework results
 
 | Homework   |  Links
-| ---------- | -----------------------------------------
-| 1          | [answers.md](results/homework-1/answers.md)
-| 2          | [answers.md](results/homework-2/answers.md)
-| 3          | [answers.md](results/homework-3/answers.md)
-| 4          | [answers.md](results/homework-4/answers.md)
-| 5          | [answers.md](results/homework-5/answers.md)
+| ---------: | ---------------------------------------------
+| 1          | [report.html](results/homework-1/report.html)
+| 2          | [report.html](results/homework-2/report.html)
+| 3          | [report.html](results/homework-3/report.html)
+| 4          | [report.html](results/homework-4/report.html)
+| 5          | [report.html](results/homework-5/report.html)
 
 
 ## Featured result

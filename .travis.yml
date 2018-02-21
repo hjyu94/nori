@@ -2,7 +2,7 @@ language: cpp
 dist: trusty
 sudo: false
 os: linux
-compiler: gcc-4.8
+compiler: gcc-6
 notifications:
   email: false
 
@@ -12,7 +12,7 @@ addons:
       - ubuntu-toolchain-r-test
       - kubuntu-backports
     packages:
-      - g++-4.8
+      - g++-6
       - libglu1-mesa-dev
       - libxxf86vm-dev
       - libxrandr-dev
@@ -36,6 +36,6 @@ script:
   # Build
   - mkdir -p build
   - cd build
-  - cmake ${CMAKE_OPTIONS} -DCMAKE_CXX_COMPILER=g++-4.8 -DCMAKE_C_COMPILER=gcc-4.8 ..
+  - cmake ${CMAKE_OPTIONS} -DCMAKE_CXX_COMPILER=g++-6 -DCMAKE_C_COMPILER=gcc-6 ..
   - make -j 2
   # Run tests (TODO)
