@@ -1,16 +1,25 @@
-[![CS440 Banner](https://rgl.s3.eu-central-1.amazonaws.com/media/uploads/wjakob/2017/02/16/cs440-logo_web.jpg)](https://rgl.s3.eu-central-1.amazonaws.com/media/uploads/wjakob/2017/02/20/cs440-rgl.jpg)
+Advanced Computer Graphics — Homeworks
+======================================
 
-## Nori Version 2
+Student name:
+Sciper number:
 
-Nori is a simple ray tracer written in C++. It runs on Windows, Linux, and
-Mac OS and provides basic functionality that is required to complete the
-assignments in the course Advanced Computer Graphics taught at EPFL.
+## Build status
 
-### Course information and framework documentation
+**Visit [Travis CI](https://travis-ci.com) to get the build badge for your repository.**
 
-For access to course information including slides and reading material, visit the main [Advanced Computer Graphics website](https://rgl.epfl.ch/courses/ACG17). The Nori 2 framework and coding assignments will be described on the [Nori website](https://wjakob.github.io/nori).
 
-### Note to researchers and students from other institutions
+## Homework results
 
-Last year's version of Nori including a full set of assignment descriptions can
-be found in the following [archive](https://github.com/wjakob/nori-old).
+| Homework   |  Links
+| ---------- | -----------------------------------------
+| 1          | [answers.md](results/homework-1/answers.md)
+| 2          | [answers.md](results/homework-2/answers.md)
+| 3          | [answers.md](results/homework-3/answers.md)
+| 4          | [answers.md](results/homework-4/answers.md)
+| 5          | [answers.md](results/homework-5/answers.md)
+
+
+## Featured result
+
+Feel free to show off your best render here!
