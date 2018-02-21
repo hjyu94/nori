@@ -22,6 +22,10 @@ addons:
       - libx11-dev
       - cmake
 
+cache:
+  directories:
+    - build/ext_build
+
 install:
   - echo ${PATH}
   - echo ${CXX}
