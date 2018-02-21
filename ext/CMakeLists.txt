@@ -55,8 +55,10 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU"
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
   endif()
 
-  # Disable specific warnings while building the dependencies
-  # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-format-truncation -Wno-deprecated-declarations -Wno-misleading-indentation -Wno-int-in-bool-context -Wno-implicit-fallthrough -Wno-maybe-uninitialized -Wno-deprecated")
+  # Disable specific GCC 7 warnings
+  if (CMAKE_COMPILER_IS_GNUCC AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 7.0)
+      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-misleading-indentation -Wformat-truncation=0 -Wno-int-in-bool-context -Wimplicit-fallthrough=0")
+  endif()
 endif()
 
 # Sanitize build environment for static build with C++11
