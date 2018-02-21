@@ -45,7 +45,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU"
   elseif (HAS_CPP11_FLAG)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
   else()
-    message(FATAL_ERROR "Unsupported compiler -- Mitsuba requires C++11 support!")
+    message(FATAL_ERROR "Unsupported compiler -- Nori requires C++11 support!")
   endif()
 
   # Enable link time optimization and set the default symbol
@@ -54,6 +54,11 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU"
     # Default symbol visibility
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
   endif()
+
+  # Disable specific warnings while building the dependencies
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-format-truncation -Wno-deprecated-declarations -Wno-misleading-indentation -Wno-int-in-bool-context -Wno-implicit-fallthrough -Wno-maybe-uninitialized -Wno-deprecated")
+
+  message(INFO "After disable: ${CMAKE_CXX_FLAGS}")
 endif()
 
 # Sanitize build environment for static build with C++11
@@ -171,6 +176,10 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
   endif()
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+  # Re-enable disabled warnings
+  if(CMAKE_CXX_FLAGS MATCHES "-Wno-[^ ]+")
+    string(REGEX REPLACE "-Wno-[^ ]+" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+  endif()
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused-parameter")
   if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-gnu-anonymous-struct -Wno-c99-extensions -Wno-nested-anon-types -Wno-deprecated-register")
