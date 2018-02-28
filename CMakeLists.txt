@@ -31,6 +31,8 @@ include_directories(
   ${NANOGUI_EXTRA_INCS}
   # Portable filesystem API
   ${FILESYSTEM_INCLUDE_DIR}
+  # STB Image Write
+  ${STB_IMAGE_WRITE_INCLUDE_DIR}
 )
 
 # The following lines build the main executable. If you add a source
