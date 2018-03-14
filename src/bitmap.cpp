@@ -118,9 +118,9 @@ void Bitmap::savePNG(const std::string &filename) {
     for (int i = 0; i < rows(); ++i) {
         for (int j = 0; j < cols(); ++j) {
             Color3f tonemapped = coeffRef(i, j).toSRGB();
-            dst[0] = clamp((uint8_t) (255.f * tonemapped[0]), 0, 255);
-            dst[1] = clamp((uint8_t) (255.f * tonemapped[1]), 0, 255);
-            dst[2] = clamp((uint8_t) (255.f * tonemapped[2]), 0, 255);
+            dst[0] = (uint8_t) clamp(255.f * tonemapped[0], 0.f, 255.f);
+            dst[1] = (uint8_t) clamp(255.f * tonemapped[1], 0.f, 255.f);
+            dst[2] = (uint8_t) clamp(255.f * tonemapped[2], 0.f, 255.f);
             dst += 3;
         }
     }
