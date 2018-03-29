@@ -4,7 +4,11 @@ import sys
 
 tests = [
     "pa4/tests/test-mesh.xml",
-    "pa4/tests/test-mesh-furnace.xml"
+    "pa4/tests/test-mesh-furnace.xml",
+    "pa5/tests/chi2test-microfacet.xml",
+    "pa5/tests/ttest-microfacet.xml",
+    "pa5/tests/test-mesh.xml",
+    "pa5/tests/test-mesh-furnace.xml",
 ]
 
 total = len(tests)
