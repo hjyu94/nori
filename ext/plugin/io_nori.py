@@ -230,7 +230,7 @@ class NoriWritter:
         
         # get useful information of the shape
         exportNormal = (prevMesh.polygons[0].use_smooth)
-        exportUV = exportNormal and (prevMesh.uv_layers.active != None)
+        exportUV = (prevMesh.uv_layers.active != None)
         haveMaterial = (len(mesh.material_slots) != 0 and mesh.material_slots[0].name != '')
         
         # export obj file base (vertex pos, normal and uv)
